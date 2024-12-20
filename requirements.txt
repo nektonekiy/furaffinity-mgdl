@@ -1,0 +1,11 @@
+attrs==23.2.1.dev0
+cffi==1.17.1
+cryptography==44.0.0
+dbus-python==1.3.2
+filelock==3.16.1
+lensfun==0.3.4
+packaging==24.2
+pycparser==2.22
+PyGObject==3.50.0
+setproctitle==1.3.4
+wheel==0.45.0
