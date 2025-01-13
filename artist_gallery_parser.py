@@ -9,12 +9,10 @@ class GalleryParser:
     def get_pics_urls(self):
         posts_urls = []
         def get_page(url):
-            print("Getting page...")
             r = requests.get(url)
             return BS(r.content, "html.parser")
 
         def parse_gallery_for_pictures_urls(html):
-            print("Parsing...")
             posts_urls = []
             for el in html.select("#gallery-gallery > .r-general"):
                 a = el.select("u > a")[0]
@@ -24,7 +22,6 @@ class GalleryParser:
         page = 1
         while True:
             url = self.url + "/" + str(page)
-            print(url)
             posts_urls_found = parse_gallery_for_pictures_urls(get_page(url))
             if posts_urls_found != []:
                 posts_urls += posts_urls_found
