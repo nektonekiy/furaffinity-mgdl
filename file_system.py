@@ -9,6 +9,7 @@ class Folder:
             forbidden_symbols = ["<",">",":","/","\\","\"","|","?","*"]
             for forbidden_symbol in forbidden_symbols:
                 filtred_name = filtred_name.replace(forbidden_symbol,"[FORBIDDEN SYMBOL]")
+            return filtred_name
         self.folder_name = filter_forbidden_symbols(folder_name)
         folder_path_dviders = {
             "posix": "/",
