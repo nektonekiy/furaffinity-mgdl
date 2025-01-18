@@ -58,8 +58,9 @@ def main():
 
         filename = "description.txt"
         file_path = f"{folder_path}{folder_path_dviders[os.name]}{filename}" 
+        desc_file_content = f"{pp.get_pic_description()}\n\nDownloaded from: {pic_url}"
         with open(file_path, 'w') as file:
-            file.write(pp.get_pic_description())
+            file.write(desc_file_content)
         bar.next()
 
 if __name__ == "__main__":
