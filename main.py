@@ -31,7 +31,14 @@ def main():
                 "nt": "\\"
             }
         def create_post_folder():
-            folder_name = demoji.replace_with_desc(pp.get_pic_title(), sep="")
+
+            def filter_forbidden_symbols(name: str):
+                filtred_name = demoji.replace_with_desc(name, sep="")
+                forbidden_symbols = ["<",">",":","/","\\","\"","|","?","*"]
+                for forbidden_symbol in forbidden_symbols:
+                    filtred_name = filtred_name.replace(forbidden_symbol,"[FORBIDDEN SYMBOL]")
+
+            folder_name = filter_forbidden_symbols(pp.get_pic_title())
             try:
                 folder_path = f"{artist_username}{folder_path_dviders[os.name]}{folder_name}"
                 os.mkdir(folder_path)
