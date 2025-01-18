@@ -4,6 +4,7 @@ from progress.bar import IncrementalBar
 import requests
 import os
 import sys
+import demoji
 
 def main():
     try:
@@ -30,8 +31,9 @@ def main():
                 "nt": "\\"
             }
         def create_post_folder():
+            folder_name = demoji.replace_with_desc(pp.get_pic_title(), sep="")
             try:
-                folder_path = f"{artist_username}{folder_path_dviders[os.name]}{pp.get_pic_title()}"
+                folder_path = f"{artist_username}{folder_path_dviders[os.name]}{folder_name}"
                 os.mkdir(folder_path)
             except FileExistsError:
                 folder_name_number = 1

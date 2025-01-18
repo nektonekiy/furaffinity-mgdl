@@ -1,6 +1,7 @@
 beautifulsoup4==4.12.3
 certifi==2024.12.14
 charset-normalizer==3.4.1
+demoji==1.1.0
 idna==3.10
 progress==1.6
 requests==2.32.3
