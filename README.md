@@ -14,4 +14,5 @@ pip install -r requirements.txt
 python main.py <url>
 ```
 ## TODO
-- Add ability to download favorites and single post
+- [ ] Add ability to download favorites and single post
+- [ ] Add network failure handling 
