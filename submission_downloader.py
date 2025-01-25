@@ -1,9 +1,9 @@
-from post_parser import PostParser as PP
+from submission_parser import SubmissionParser as SP
 from file_system import Folder
 import requests
 import os
 
-class PostFolder:
+class SubmissionFolder:
     def __init__(self, post_url: str, folder_path: str=os.getcwd()):
         self.post_url = post_url
         self.pp = PP(post_url)
@@ -13,9 +13,9 @@ class PostFolder:
         }
         self.folder = Folder(folder_path, self.pp.get_pic_title())
 
-    def download_picture(self):
+    def download_submission_content(self):
         print("Downloading picture")
-        pic_file_url = self.pp.get_pic_file_url()
+        pic_file_url = self.pp.get_submission_content_file_url()
         if pic_file_url == None:
             return 
         filename = pic_file_url.split("/")[-1]
