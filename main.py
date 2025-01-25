@@ -1,7 +1,7 @@
 from artist_gallery_parser import GalleryParser as GP
 from file_system import Folder 
 from progress.bar import IncrementalBar
-from post_downloader import PostFolder as PF
+from submission_downloader import SubmissionFolder as SF
 import sys
 import os
 
@@ -23,9 +23,9 @@ def main():
 
     bar = IncrementalBar("Downloading pictures and descriptions...", max=len(posts_urls))
     for post_url in posts_urls:
-        pf = PF(post_url, root_folder.folder_path)
-        pf.download_picture()
-        pf.download_description()
+        sf = SF(post_url, root_folder.folder_path)
+        sf.download_picture()
+        sf.download_description()
         bar.next()
 
 if __name__ == "__main__":
