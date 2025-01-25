@@ -7,7 +7,7 @@ class GalleryParser:
         self.url = url
         self.page_type = page_type
 
-    def get_pics_urls(self):
+    def get_submissions_urls(self):
         posts_urls = []
         if self.page_type == "favorites":
             print("Sorry. Favorites downloading functionaltiy is under development")
@@ -16,7 +16,7 @@ class GalleryParser:
             r = requests.get(url)
             return BS(r.content, "html.parser")
 
-        def parse_gallery_for_pictures_urls(html):
+        def parse_gallery_for_submissions_urls(html):
             posts_urls = []
             if self.page_type == "gallery":
                 for el in html.select("#gallery-gallery > .r-general"):
