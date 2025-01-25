@@ -7,7 +7,7 @@ class SubmissionParser:
         r = requests.get(url)
         self.html = BS(r.content, "html.parser") 
 
-    def get_submission_content_file_url(self):
+    def get_content_file_url(self):
         try:
             el = self.html.select(".submission-image")[0]
         except IndexError:
@@ -19,7 +19,7 @@ class SubmissionParser:
         el = self.html.select(".submission-title")[0]
         pic_title = el.select("p")[0].text
         return pic_title
-    def get_pic_description(self):
+    def get_description(self):
         el = self.html.select(".submission-description")[0]
         pic_description = el.text.strip()
         return pic_description
