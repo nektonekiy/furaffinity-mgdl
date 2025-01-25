@@ -17,14 +17,14 @@ def main():
     artist_username = artist_url.split("/")[-1]
     root_folder = Folder(os.getcwd(), artist_username)
     
-    print("Fetching posts links...")
+    print("Fetching submissions links...")
     gp = GP(artist_url, "gallery")
-    posts_urls = gp.get_pics_urls()
+    submissions_urls = gp.get_submissions_urls()
 
-    bar = IncrementalBar("Downloading pictures and descriptions...", max=len(posts_urls))
-    for post_url in posts_urls:
-        sf = SF(post_url, root_folder.folder_path)
-        sf.download_picture()
+    bar = IncrementalBar("Downloading pictures and descriptions...", max=len(submissions_urls))
+    for submission_url in submissions_urls:
+        sf = SF(submission_url, root_folder.folder_path)
+        sf.download_submission_content()
         sf.download_description()
         bar.next()
 

@@ -4,19 +4,18 @@ import requests
 import os
 
 class SubmissionFolder:
-    def __init__(self, post_url: str, folder_path: str=os.getcwd()):
-        self.post_url = post_url
-        self.sp = SP(post_url)
+    def __init__(self, submission_url: str, folder_path: str=os.getcwd()):
+        self.submission_url = submission_url
+        self.sp = SP(submission_url)
         self.folder_path_dviders = {
             "posix": "/",
             "nt": "\\"
         }
-        self.folder = Folder(folder_path, self.pp.get_pic_title())
+        self.folder = Folder(folder_path, self.sp.get_pic_title())
 
     def download_submission_content(self):
-        print("Downloading picture")
         sc_file_url = self.sp.get_content_file_url()
-        if pic_file_url == None:
+        if sc_file_url == None:
             return 
         filename = sc_file_url.split("/")[-1]
         file_path = f"{self.folder.folder_path}{self.folder_path_dviders[os.name]}{filename}" 
@@ -25,9 +24,8 @@ class SubmissionFolder:
             file.write(r.content)
 
     def download_description(self):
-        print("Downloading description")
         filename = "desc.txt"
         file_path = f"{self.folder.folder_path}{self.folder_path_dviders[os.name]}{filename}" 
-        desc_file_content = f"{self.sp.get_description()}\n\nDownloaded from: {self.post_url}"
+        desc_file_content = f"{self.sp.get_description()}\n\nDownloaded from: {self.submission_url}"
         with open(file_path, 'w') as file:
             file.write(desc_file_content)
