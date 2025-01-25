@@ -1,13 +1,13 @@
 import requests
 from bs4 import BeautifulSoup as BS
 
-class PostParser:
+class SubmissionParser:
 
     def __init__(self, url):
         r = requests.get(url)
         self.html = BS(r.content, "html.parser") 
 
-    def get_pic_file_url(self):
+    def get_submission_content_file_url(self):
         try:
             el = self.html.select(".submission-image")[0]
         except IndexError:
