@@ -30,7 +30,7 @@ class SubmissionFolder:
         try:
             with open(file_path, 'w') as file:
                 file.write(desc_file_content)
-        except UnicodeDecodeError:
+        except UnicodeEncodeError:
             pass
 
 
