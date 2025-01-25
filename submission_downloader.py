@@ -27,5 +27,10 @@ class SubmissionFolder:
         filename = "desc.txt"
         file_path = f"{self.folder.folder_path}{self.folder_path_dviders[os.name]}{filename}" 
         desc_file_content = f"{self.sp.get_description()}\n\nDownloaded from: {self.submission_url}"
-        with open(file_path, 'w') as file:
-            file.write(desc_file_content)
+        try:
+            with open(file_path, 'w') as file:
+                file.write(desc_file_content)
+        except UnicodeDecodeError:
+            pass
+
+
