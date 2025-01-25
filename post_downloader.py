@@ -16,6 +16,8 @@ class PostFolder:
     def download_picture(self):
         print("Downloading picture")
         pic_file_url = self.pp.get_pic_file_url()
+        if pic_file_url == None:
+            return 
         filename = pic_file_url.split("/")[-1]
         file_path = f"{self.folder.folder_path}{self.folder_path_dviders[os.name]}{filename}" 
         r = requests.get(pic_file_url)

@@ -8,7 +8,11 @@ class PostParser:
         self.html = BS(r.content, "html.parser") 
 
     def get_pic_file_url(self):
-        el = self.html.select(".submission-image")[0]
+        try:
+            el = self.html.select(".submission-image")[0]
+        except IndexError:
+            print("Sorry non-image submissions isn't supported")
+            return None
         pic_file_url = "https:" + el.select("img")[0]["data-fullview-src"]
         return pic_file_url
     def get_pic_title(self):
